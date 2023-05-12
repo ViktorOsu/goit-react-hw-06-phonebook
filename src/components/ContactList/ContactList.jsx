@@ -2,17 +2,11 @@ import { ContactItem } from './ContactItem';
 import PropTypes from 'prop-types';
 import { ContactsList } from './ContactList.styled';
 
-export const ContactList = ({ contacts, itemDelete }) => {
+export const ContactList = ({ contacts }) => {
   return (
     <ContactsList>
       {contacts.map(({ id, name, number }) => (
-        <ContactItem
-          key={id}
-          id={id}
-          name={name}
-          number={number}
-          itemDelete={itemDelete}
-        />
+        <ContactItem key={id} id={id} name={name} number={number} />
       ))}
     </ContactsList>
   );
@@ -26,5 +20,4 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ),
-  itemDelete: PropTypes.func.isRequired,
 };
